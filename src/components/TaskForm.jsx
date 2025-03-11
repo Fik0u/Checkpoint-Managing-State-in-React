@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { AntDesignOutlined } from '@ant-design/icons';
 
 const TaskForm = ({AddEdit, editTask}) => {
     const [title, setTitle] = useState('')
@@ -21,7 +22,7 @@ useEffect(() => {
 }, [editTask])
 
   return (
-    <div className='container m-4 p-4' style={{border: '1px solid #ccc', borderRadius: '10px', backgroundColor: '#f9f9f9'}}>
+    <div className='container my-4 p-4' style={{width: '500px', border: '1px solid #ccc', borderRadius: '10px', backgroundColor: '#212529ad'}}>
        <Form onSubmit = {handleSubmit}>
       <Form.Group className="mb-3">
         <Form.Control type="text" placeholder="Enter task" required value = {title} onChange = {(e) => setTitle(e.target.value)}/>
@@ -29,9 +30,11 @@ useEffect(() => {
       <Form.Group className="mb-3">
         <Form.Control type="text" placeholder="Description" required value = {description} onChange = {(e) => setDescription(e.target.value)}/>
       </Form.Group>
-      <Button variant="primary" type="submit">
-        {editTask ? 'Edit' : 'Add'}
-      </Button>
+
+      <Button type="submit" size="large" icon={<AntDesignOutlined />} style={{background: 'linear-gradient(135deg,rgb(46, 41, 74),rgb(47, 165, 208))', border:'none', inset: '-1px', opacity: '1', borderRadius: '20px'}}>
+      {editTask ? 'Edit Task' : 'Add Task'}
+        </Button>
+      
     </Form>
     </div>
   )

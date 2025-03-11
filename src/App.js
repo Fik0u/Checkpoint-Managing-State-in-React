@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>My To-Do List</h1>
+      <h1 style={{margin: '10px'}}>CheckMate</h1>
       <TaskForm AddEdit = {editTask ? updateTask : addTask} editTask = {editTask} />
       <TaskList tasks = {tasks} deleteTask = {deleteTask} toggleDone = {toggleDone} setEditTask = {setEditTask}/>
     </div>
