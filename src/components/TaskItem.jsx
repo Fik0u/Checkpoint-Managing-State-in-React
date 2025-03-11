@@ -1,9 +1,11 @@
+// Imports
 import { CheckCircleOutlined, CloseCircleOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import React from 'react'
 import Accordion from 'react-bootstrap/Accordion';
 
 
-
+// Component for each task is represented as an accordion item
+// Each task has a title, description, and buttons for editing, marking as done, and deleting
 const TaskItem = ({task, deleteTask, toggleDone, setEditTask}) => {
   return (
     <div>
@@ -12,6 +14,8 @@ const TaskItem = ({task, deleteTask, toggleDone, setEditTask}) => {
             <Accordion.Header style={{textDecoration: task.done ? 'line-through' : 'none'}}>{task.title}</Accordion.Header>
             <Accordion.Body style={{backgroundColor: task.done ? '#1987547a' : '#dee2e6'}}>
                 {task.description}
+                
+{/* Buttons for editing, marking as done, and deleting a task */}
 
                 <div>
                 <EditOutlined className='m-4' style={{fontSize:'25px'}} onClick = {() => setEditTask(task)}/>

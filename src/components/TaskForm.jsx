@@ -3,17 +3,21 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { AntDesignOutlined } from '@ant-design/icons';
 
+// Component for the form to add or edit a task
 const TaskForm = ({AddEdit, editTask}) => {
+// State variables for the title and description of the task
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    
+
+// Function to handle the submission of the form
     const handleSubmit = (e) => {
         e.preventDefault()
         AddEdit({id: editTask? editTask.id : Math.floor(Math.random() * 10000), title, description, done: editTask? editTask.done : false})
-        setTitle('')
+        setTitle('') // Clear the title and description field after submission
         setDescription('')
     }
 
+// If the task is being edited, set the title and description fields to the current values
 useEffect(() => {
     if (editTask){
         setTitle(editTask.title)
